@@ -31,12 +31,13 @@ body {
 
 header {
     display: flex;
-    position: absolute;
+    position: sticky;
     top: 0;
     right: 0;
     left: 0;
     align-items: center;
     justify-content: space-between;
+    width: 100% !important;
     height: 70px;
     background-color: rgba(225, 225, 225, 0.123);
     backdrop-filter: blur(10px);
@@ -157,7 +158,7 @@ main .hero {
     align-items: center;
     justify-content: flex-start;
     gap: 20px;
-    margin-top: 100px;
+    margin-top: -70px;
     padding-left: 3%;
 }
 
@@ -1229,6 +1230,28 @@ main .hero {
     margin: 0 5px;
 }
 
+/* Hero-specific animation that doesn't blur on entry */
+.heroBlur {
+    animation: heroBlurScroll linear both;
+    animation-timeline: view();
+    mix-blend-mode: lighten;
+}
+
+@keyframes heroBlurScroll {
+    0% {
+        filter: blur(35px);
+        opacity: 0;
+    }
+    30%, 60% {
+        filter: blur(0);
+        opacity: 1;
+    }
+    100% {
+        filter: blur(35px);
+        opacity: 0;
+    }
+}
+
 /* Blur Effect Animation */
 .autoBlur {
     animation: autoBlurAnimation linear both;
@@ -1238,15 +1261,15 @@ main .hero {
 
 @keyframes autoBlurAnimation {
     0% {
-        filter: blur(40px);
+        filter: blur(30px);
         opacity: 0;
     }
-    35%, 65% {
+    30%, 75% {
         filter: blur(0);
         opacity: 1;
     }
     100% {
-        filter: blur(40px);
+        filter: blur(30px);
         opacity: 0;
     }
 }
