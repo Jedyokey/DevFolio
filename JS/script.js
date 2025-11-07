@@ -206,8 +206,6 @@ function createPerfectSeamlessSlider() {
 // Initialize the seamless slider
 createPerfectSeamlessSlider();
 
-
-
 // Skills Slider - Pause on individual image hover
 const sliderList = document.querySelector('.slider .list');
 const sliderItems = document.querySelectorAll('.slider .list .item');
